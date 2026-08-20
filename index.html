@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Secondary Rail Freight Market Dashboard</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="wrap">
+
+  <header class="app-header">
+    <div>
+      <h1>Secondary Rail Freight Market Dashboard</h1>
+      <p class="subtitle">Secondary railcar auction market bids &mdash; BNSF, Union Pacific &amp; CPKC grain shuttle and non-shuttle service</p>
+      <p class="meta" id="meta-line">Loading&hellip;</p>
+      <p class="meta" id="refresh-status" style="display:none;"></p>
+      <div class="select-row" id="refresh-downloads" style="display:none; margin-top:6px; gap:14px;">
+        <button class="table-toggle-btn" id="download-bids-btn" type="button">Download updated secondary_railcar_bids.json</button>
+        <button class="table-toggle-btn" id="download-pnw-btn" type="button">Download updated pnw_bulk_export_monthly.json</button>
+      </div>
+    </div>
+    <div class="header-actions">
+      <button class="theme-toggle" id="refresh-data-btn" type="button">Check for new data</button>
+      <button class="theme-toggle" id="theme-toggle" type="button">Dark mode</button>
+    </div>
+  </header>
+
+  <div class="filter-row" id="filter-row">
+    <div class="filter-group" id="company-filters">
+      <span class="fg-label">Railroad</span>
+    </div>
+    <div class="filter-group" id="type-filters">
+      <span class="fg-label">Service</span>
+    </div>
+  </div>
+
+  <div class="tabs" id="tabs">
+    <button class="tab-btn active" data-tab="snapshot">Current snapshot</button>
+    <button class="tab-btn" data-tab="history">Full history</button>
+    <button class="tab-btn" data-tab="seasonal">Seasonal comparison</button>
+    <button class="tab-btn" data-tab="trailing">Trailing average</button>
+    <button class="tab-btn" data-tab="model">Correlation model</button>
+    <button class="tab-btn" data-tab="outlook">2026 outlook</button>
+  </div>
+
+  <div class="tab-panel active" id="panel-snapshot"></div>
+  <div class="tab-panel" id="panel-history"></div>
+  <div class="tab-panel" id="panel-seasonal"></div>
+  <div class="tab-panel" id="panel-trailing"></div>
+  <div class="tab-panel" id="panel-model"></div>
+  <div class="tab-panel" id="panel-outlook"></div>
+
+  <footer class="app-footer">
+    Data: USDA Agricultural Marketing Service, Agricultural Transportation Open Data
+    (<a href="https://agtransport.usda.gov" target="_blank" rel="noopener">agtransport.usda.gov</a>),
+    dataset <code>cvu8-kpyk</code> &mdash; secondary railcar auction market bids. Bid values are the
+    $/car premium (positive) or discount (negative) paid in the secondary market versus each railroad's base tariff.
+    16,299 records, 1997&ndash;2026.
+  </footer>
+</div>
+
+<div class="tooltip" id="tooltip"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
