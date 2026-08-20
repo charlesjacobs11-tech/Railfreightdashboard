@@ -32,11 +32,11 @@ def build_html():
     # relative fetches are pre-empted with a shim that serves the JSON straight out of memory
     # instead of hitting the network. app.js itself needed zero changes.
     html = (ROOT / "index.html").read_text(encoding="utf-8-sig")
-    css = (ROOT / "styles.css").read_text(encoding="utf-sig")
-    js = (ROOT / "app.js").read_text(encoding="utf-sig")
+    css = (ROOT / "styles.css").read_text(encoding="utf-8-sig")
+    js = (ROOT / "app.js").read_text(encoding="utf-8-sig")
 
     preloaded = {
-        "data/" + name: json.loads((DATA_DIR / name).read_text(encoding="utf-sig"))
+        "data/" + name: json.loads((DATA_DIR / name).read_text(encoding="utf-8-sig"))
         for name in DATA_FILES
     }
 
