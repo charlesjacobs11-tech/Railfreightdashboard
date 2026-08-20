@@ -63,7 +63,7 @@
   .subtitle { color: var(--text-secondary); font-size: 13.5px; margin: 0; }
   .meta { color: var(--text-muted); font-size: 12px; margin-top: 6px; }
 
-  .header-actions { display: flex; gap: 8px; align-items: flex-start; flex: none; }
+  .header-actions { display: flex; gap: 8px; align-items: center; flex: none; }
 
   button.theme-toggle {
     border: 1px solid var(--border); background: var(--surface-1); color: var(--text-secondary);
@@ -72,6 +72,14 @@
   }
   button.theme-toggle:hover { color: var(--text-primary); }
   button.theme-toggle:disabled { opacity: 0.5; cursor: default; }
+
+  /* The logo's own artwork has a white background, which reads fine on the light theme's
+     off-white page but looks like a stray rectangle on the dark theme — the white card behind
+     it makes that look deliberate in both themes instead of only fixing one. */
+  .header-logo {
+    height: 40px; width: auto; flex: none;
+    background: #fff; border: 1px solid var(--border); border-radius: 6px; padding: 3px 6px;
+  }
 
   /* filter row */
   .filter-row {
