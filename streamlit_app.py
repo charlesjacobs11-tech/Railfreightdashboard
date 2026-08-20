@@ -31,12 +31,12 @@ def build_html():
     # the sandboxed iframe Streamlit renders it in, not this app's working directory — so
     # relative fetches are pre-empted with a shim that serves the JSON straight out of memory
     # instead of hitting the network. app.js itself needed zero changes.
-    html = (ROOT / "index.html").read_text(encoding="utf-8")
-    css = (ROOT / "styles.css").read_text(encoding="utf-8")
-    js = (ROOT / "app.js").read_text(encoding="utf-8")
+    html = (ROOT / "index.html").read_text(encoding="utf-8-sig")
+    css = (ROOT / "styles.css").read_text(encoding="utf-sig")
+    js = (ROOT / "app.js").read_text(encoding="utf-sig")
 
     preloaded = {
-        "data/" + name: json.loads((DATA_DIR / name).read_text(encoding="utf-8"))
+        "data/" + name: json.loads((DATA_DIR / name).read_text(encoding="utf-sig"))
         for name in DATA_FILES
     }
 
